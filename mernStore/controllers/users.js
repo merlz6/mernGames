@@ -18,7 +18,7 @@ users.post('/', (req, res) => {
 
     User.create(req.body, (err, createdUser) => {
         console.log(createdUser);
-        res.redirect('/games');
+        res.redirect('/Games');
     });
 });
 module.exports = users;

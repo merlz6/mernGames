@@ -12,6 +12,7 @@ class LoginUser extends React.Component {
                     <br />
                     <input type="submit" name="" value="Login" />
                 </form>
+                <a href="/user/new"> Create an account </a>
             </div>
         );
     }

@@ -20,7 +20,7 @@ class Index extends React.Component {
             <nav>
               <a href="/games/new">Add game</a>
             </nav>
-              <h1>${this.props.username}'s Games</h1>
+              <h1>{this.props.username}'s Games</h1>
               <ul>
             {this.props.games.length > 0 ?
                 this.props.games.map(( game, i) => {
@@ -32,7 +32,7 @@ class Index extends React.Component {
                                           {game.name}
                                       </a>
                                       <br />
-                                
+
                                       <a href={`/games/edit/${game._id}`}>
                                           EDIT {game.name}
                                       </a>
