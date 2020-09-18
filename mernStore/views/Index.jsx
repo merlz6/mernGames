@@ -1,5 +1,7 @@
 const React = require('react');
+
 const Layout = require('./Layout.jsx');
+
 
 class Index extends React.Component {
     render() {
@@ -24,22 +26,24 @@ class Index extends React.Component {
                 this.props.games.map(( game, i) => {
                               console.log(game._id);
                               return (
-                                  <li>
-
-                                      <a href={`/games/${game._id}`}>
+                                  <div>
+                                      <img style={{height:'200px'}} src={game.img} /> <br />
+                                      <a  href={`/games/${game._id}`}>
                                           {game.name}
                                       </a>
                                       <br />
+                                
                                       <a href={`/games/edit/${game._id}`}>
                                           EDIT {game.name}
                                       </a>
+
                                       <form
                                           action={`/games/${game._id}?_method=DELETE`}
                                           method="post"
                                       >
                                           <input type="submit" value="delete" />
                                       </form>
-                                  </li>
+                                  </div>
                               );
                           }):
                            '' }

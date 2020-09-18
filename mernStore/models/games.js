@@ -9,7 +9,8 @@ const gameSchema = new Schema({
     system: [String],
     currentProgressNotes:String,
     beaten:Boolean,
-    owner:String
+    owner:String,
+    img:String
 
 }, { timestamps: true });
 

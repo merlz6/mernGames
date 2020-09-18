@@ -20,6 +20,7 @@ gameController.get('/', isAuthenticated, (req, res) => {
     // Use Games model to get all Games
     Game.find({owner:req.session.currentUser}, (error, allGames) => {
         console.log(req.session);
+        console.log(allGames)
         res.render('Index', {
             games: allGames,
             username: req.session.currentUser,
@@ -62,7 +63,7 @@ gameController.get('/:id', isAuthenticated, (req, res) => {
     Game.findById(req.params.id, (error, foundGame) => {
         // render the Show route and pass it the foundGame
         res.render('Show', {
-            Game: foundGame,
+            game: foundGame,
         });
     });
 });
@@ -70,7 +71,7 @@ gameController.get('/:id', isAuthenticated, (req, res) => {
 //EDIT
 gameController.get('/edit/:id', isAuthenticated, (req, res) => {
     Game.findById(req.params.id, (error, foundGame) => {
-        res.render('Edit', { Game: foundGame });
+        res.render('Edit', { game: foundGame });
     });
 });
 

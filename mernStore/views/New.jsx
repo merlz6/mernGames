@@ -12,6 +12,7 @@ class New extends React.Component {
                   System: <input type="text" name="system" /><br/>
                   Current Progress Notes: <input type="text" name="currentProgressNotes" /><br/>
                   Beaten:<input type="checkbox" name="beaten" /><br/>
+                  Image Link: <input type="text" name="img" /><br/>
                   <input type="submit" name="" value="Create Game"/>
                 </form>
           </div>
