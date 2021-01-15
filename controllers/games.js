@@ -63,7 +63,7 @@ gameController.post('/', (req, res) => {
     // Use Model to create Game Document
     Game.create(req.body, (error, createdGame) => {
         // Once created - respond to client
-        res.redirect('/');
+        res.redirect('/games');
     });
 });
 
@@ -72,7 +72,7 @@ gameController.post('/', (req, res) => {
 //DELETE ROUTE
 gameController.delete('/:id', isAuthenticated, (req, res) => {
     Game.findByIdAndRemove(req.params.id, (err, data) => {
-        res.redirect('/');
+        res.redirect('/games');
     });
 });
 
@@ -102,7 +102,7 @@ gameController.put('/edit/:id', (req, res) => {
       req.body.beaten = false;
   }
     Game.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
-        res.redirect('/');
+        res.redirect('/games');
     });
 });
 

@@ -27,7 +27,7 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 //Controllers
-app.use('/', gamesController);
+app.use('/games', gamesController);
 app.use('/user', userController);
 
 // mongoose connection
@@ -52,12 +52,12 @@ const isAuthenticated = (req, res, next) => {
 };
 
 //ROUTE TO LOGIN PAGE
-app.get('/sessions/new', (req, res) => {
+app.get('/', (req, res) => {
     res.render('sessions/New', { currentUser: req.session.currentUser });
 });
 
 //Authentication Route, Login
-app.post('/sessions/', (req, res) => {
+app.post('/sessions', (req, res) => {
     //See if user exists
     User.findOne({ username: req.body.username }, (err, foundUser) => {
         if (err) {
@@ -71,7 +71,7 @@ app.post('/sessions/', (req, res) => {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 //send to GM page
                 req.session.currentUser = foundUser.username;
-                res.redirect('/');
+                res.redirect('/games');
             } else {
                 //tell them its a wrong password
                 res.send('WRONG PASSWORD');
