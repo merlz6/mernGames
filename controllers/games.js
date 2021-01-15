@@ -31,7 +31,7 @@ gameController.get('/', isAuthenticated, (req, res) => {
         });
     });
 });
-
+      //unbeaten games route
 gameController.get('/filtered', isAuthenticated, (req, res) => {
     // Use Games model to get all Games
 
@@ -41,6 +41,37 @@ gameController.get('/filtered', isAuthenticated, (req, res) => {
         let filteredGames = allGames.filter(game => game.beaten ===false)
         console.log('filtered games from controller' , filteredGames)
         res.render('Filtered', {
+            username: req.session.currentUser,
+            filteredGames:filteredGames
+        });
+    });
+});
+
+//PC games route
+gameController.get('/pc-games', isAuthenticated, (req, res) => {
+    // Use Games model to get all Games
+
+    Game.find({owner:req.session.currentUser}, (error, allGames) => {
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.system.includes('PC'))
+        console.log('PC games from controller' , filteredGames)
+        res.render('PCgames', {
+            username: req.session.currentUser,
+            filteredGames:filteredGames
+        });
+    });
+});
+//Switch games route
+gameController.get('/switchgames', isAuthenticated, (req, res) => {
+    // Use Games model to get all Games
+
+    Game.find({owner:req.session.currentUser}, (error, allGames) => {
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.system.includes('Switch'))
+        console.log('Switch games from controller' , filteredGames)
+        res.render('Switchgames', {
             username: req.session.currentUser,
             filteredGames:filteredGames
         });

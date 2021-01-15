@@ -3,7 +3,7 @@ const React = require('react');
 const Layout = require('./Layout.jsx');
 
 
-class Filtered extends React.Component {
+class PCgames extends React.Component {
 
     render() {
 
@@ -16,7 +16,7 @@ class Filtered extends React.Component {
             <button style={{'width':'10rem'}}>
               <a href="/games/new">Add game</a>
             </button>
-            <h1 style={{'color':'ghostWhite'}}>{this.props.username}'s Unbeaten Games</h1>
+            <h1 style={{'color':'ghostWhite'}}>{this.props.username}'s PC Games</h1>
             <button style={{'width':'10rem'}} >
               <a href={`/games`}> Back to all games </a>
                </button>
@@ -67,4 +67,4 @@ class Filtered extends React.Component {
     }
 }
 
-module.exports = Filtered;
+module.exports = PCgames;

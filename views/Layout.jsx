@@ -2,6 +2,12 @@ const React = require('react');
 
 class Layout extends React.Component {
     render() {
+      const logout = (
+          <form action="/sessions/?_method=delete" method="post">
+              <input type="submit" value="Logout" />
+          </form>
+      );
+
         return (
             <html>
                 <head>
@@ -16,20 +22,32 @@ class Layout extends React.Component {
                 </head>
                 <body style={{'background-color':'#0d1117', }}>
                   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">MernGames</a>
+                    <a class="navbar-brand" href="/games">MernGames</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="#">All Games <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/games">All Games <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">PC Games</a>
+                        <a class="nav-link" href="/games/pc-games">PC Games</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Add Games</a>
+                        <a class="nav-link" href="/games/switchgames">Switch</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Xbox</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Playstation</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/games/new">Add Games</a>
+                      </li>
+                      <li class="nav-item">
+                      {this.props.username ? ''  : logout }
                       </li>
                     </ul>
                     </div>

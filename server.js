@@ -82,7 +82,7 @@ app.post('/sessions', (req, res) => {
 
 app.delete('/sessions/', (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/sessions/new');
+        res.redirect('/');
     });
 });
 
