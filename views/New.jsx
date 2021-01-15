@@ -5,7 +5,7 @@ class New extends React.Component {
       return (
           <div>
               <h1>New Games page</h1>
-              <form action="/games" method="POST">
+              <form action="/" method="POST">
                   Name: <input type="text" name="name" /><br/>
                   Year: <input type="text" name="year" /><br/>
                   Genre: <input type="text" name="genre" /><br/>

@@ -24,11 +24,11 @@ class Index extends React.Component {
             {this.props.username ? '' : logout}
             <div>
             <nav>
-              <a href="/games/new">Add game</a>
+              <a href="/new">Add game</a>
             </nav>
               <h1>{this.props.username}'s Games</h1>
               <button >
-              <a href={`/games/filtered`}> Filter Games by Beaten </a>
+              <a href={`/filtered`}> Filter Games by Beaten </a>
                </button>
               <ul>
             {this.props.games.length > 0 ?
@@ -37,17 +37,17 @@ class Index extends React.Component {
                               return (
                                   <div>
                                       <img style={{height:'200px'}} src={game.img} /> <br />
-                                      <a  href={`/games/${game._id}`}>
+                                      <a  href={`/${game._id}`}>
                                           {game.name}
                                       </a>
                                       <br />
 
-                                      <a href={`/games/edit/${game._id}`}>
+                                      <a href={`/edit/${game._id}`}>
                                           EDIT {game.name}
                                       </a>
 
                                       <form
-                                          action={`/games/${game._id}?_method=DELETE`}
+                                          action={`/${game._id}?_method=DELETE`}
                                           method="post"
                                       >
                                           <input type="submit" value="delete" />
