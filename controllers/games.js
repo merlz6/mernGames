@@ -55,11 +55,18 @@ gameController.get('/pc-games', isAuthenticated, (req, res) => {
         // console.log(req.session);
         // console.log(allGames)
         let filteredGames = allGames.filter(game => game.system.includes('PC'))
+        if(filteredGames.length === 0){
+          res.render('new2',{
+              username: req.session.currentUser,
+              system: 'PC'
+          })
+        }else {
         console.log('PC games from controller' , filteredGames)
         res.render('PCgames', {
             username: req.session.currentUser,
             filteredGames:filteredGames
         });
+      }
     });
 });
 //Switch games route
@@ -70,13 +77,69 @@ gameController.get('/switchgames', isAuthenticated, (req, res) => {
         // console.log(req.session);
         // console.log(allGames)
         let filteredGames = allGames.filter(game => game.system.includes('Switch'))
+        if(filteredGames.length === 0){
+          res.render('new2',{
+              username: req.session.currentUser,
+              system: 'Switch'
+          })
+        }else {
         console.log('Switch games from controller' , filteredGames)
         res.render('Switchgames', {
             username: req.session.currentUser,
             filteredGames:filteredGames
         });
+      }
     });
 });
+
+//Xbox games route
+gameController.get('/xboxgames', isAuthenticated, (req, res) => {
+    // Use Games model to get all Games
+
+    Game.find({owner:req.session.currentUser}, (error, allGames) => {
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.system.includes('Xbox'))
+        if(filteredGames.length === 0){
+          res.render('new2',{
+              username: req.session.currentUser,
+              system: 'Xbox'
+          })
+        }else {
+        console.log('Xbox games from controller' , filteredGames)
+        res.render('Xboxgames', {
+            username: req.session.currentUser,
+            filteredGames:filteredGames
+        });
+      }
+    });
+});
+
+
+//Playstation games route
+gameController.get('/playstationgames', isAuthenticated, (req, res) => {
+    // Use Games model to get all Games
+
+    Game.find({owner:req.session.currentUser}, (error, allGames) => {
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.system.includes('Playstation'))
+        if(filteredGames.length === 0){
+          res.render('new2',{
+              username: req.session.currentUser,
+              system: 'Playstation'
+          })
+        }else {
+        console.log('Playstation games from controller' , filteredGames)
+        res.render('Playstationgames', {
+            username: req.session.currentUser,
+            filteredGames:filteredGames
+        });
+      }
+    });
+});
+
+
 
 // New
 gameController.get('/new', isAuthenticated, (req, res) => {

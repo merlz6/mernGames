@@ -39,10 +39,14 @@ class PCgames extends React.Component {
                                 <span style={{'font-size':'1.25em', 'font-weight':'600'}}>   Genre: </span> {game.genre}<br/>
                                 </p>
                                 </div>
-                                <p class="card-text">
-                                <span style={{'font-size':'1.25em', 'font-weight':'600'}}>   Game Progress: </span> {game.beaten ? ' Game Beaten' : ' Still Playing'}
+                                <p class="card-text" style={{'text-align':'left', 'margin-left':'3rem'}}>
+                                <span style={{'font-size':'1.25em', 'font-weight':'600', 'width':'150px'}}>   Game Progress: </span> {game.beaten ? ' Game Beaten' : ' Still Playing'}
 
                                   </p>
+                                  <p class="card-text" style={{'text-align':'left', 'margin-left':'3rem'}}>
+                                  <span style={{'font-size':'1.25em', 'font-weight':'600', 'width':'150px'}}>   Game Notes: </span> {game.currentProgressNotes}
+
+                                    </p>
                                   <div className="buttonHolder" style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-around'}}>
                                   <button class="btn btn-light">
                                   <a style={{'color':'black'}} href={`/games/edit/${game._id}`}>Edit</a>

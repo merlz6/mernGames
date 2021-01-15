@@ -1,14 +1,16 @@
 const React = require('react');
 
 const Layout = require('./Layout.jsx');
+const New = require('./New.jsx');
 
 
-class Filtered extends React.Component {
+class Playstationgames extends React.Component {
 
     render() {
 
 
         return (
+          {this.props.filteredGames.length > 0 ?
             <Layout title="Filtered PAGE">
             {this.props.username ? '' : logout}
             <div style={{'text-align':'center'}}>
@@ -16,17 +18,18 @@ class Filtered extends React.Component {
             <button style={{'width':'10rem'}}>
               <a href="/games/new">Add game</a>
             </button>
-            <h1 style={{'color':'ghostWhite'}}>{this.props.username}'s Unbeaten Games</h1>
+            <h1 style={{'color':'ghostWhite'}}>{this.props.username}'s Playstation Games</h1>
             <button style={{'width':'10rem'}} >
               <a href={`/games`}> Back to all games </a>
                </button>
                  </div>
-              <ul>
 
-            {this.props.filteredGames.length > 0 ?
-                this.props.filteredGames.map(( game, i) => {
+
+
+                {this.props.filteredGames.map(( game, i) => {
                               console.log(game._id);
                               return (
+                                  <ul>
                                 <div class="card text-center bg-dark" style={{'width':'30rem','margin':'15px auto'}} >
                                   <img class="card-img-top" style={{'height':'300px'}} src={game.img} alt="Card image cap" />
                                   <div class="card-body" style={{'color':'ghostWhite'}}>
@@ -60,15 +63,20 @@ class Filtered extends React.Component {
                                   </div>
                                   </div>
                                 </div>
+                                </ul>
                               );
-                          }):
-                           '' }
-              </ul>
+                          })
+
+                           }
+
 
             </div>
             </Layout>
+              :
+              <New />
+            }
         );
     }
 }
 
-module.exports = Filtered;
+module.exports = Playstationgames;

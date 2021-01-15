@@ -38,10 +38,10 @@ class Layout extends React.Component {
                         <a class="nav-link" href="/games/switchgames">Switch</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Xbox</a>
+                        <a class="nav-link" href="/games/Xboxgames">Xbox</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Playstation</a>
+                        <a class="nav-link" href="/games/Playstationgames">Playstation</a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="/games/new">Add Games</a>
