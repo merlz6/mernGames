@@ -60,6 +60,11 @@ gameController.post('/', (req, res) => {
         req.body.beaten = false;
     }
     req.body.owner = req.session.currentUser
+
+    if (req.body.system.includes(',')){
+    req.body.system = req.body.system.split(',')
+    }
+
     // Use Model to create Game Document
     Game.create(req.body, (error, createdGame) => {
         // Once created - respond to client

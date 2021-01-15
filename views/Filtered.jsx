@@ -7,9 +7,9 @@ class Filtered extends React.Component {
 
     render() {
 
-      
+
         return (
-            <Layout title="INDEX PAGE">
+            <Layout title="Filtered PAGE">
             {this.props.username ? '' : logout}
             <div>
             <nav>

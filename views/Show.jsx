@@ -1,9 +1,11 @@
 const React = require('react');
+const Layout = require('./Layout.jsx');
 
 class Show extends React.Component {
     render() {
        const { name, year, genre, system, currentProgressNotes, beaten, img } = this.props.game;
       return (
+        <Layout title="Filtered PAGE">
           <div >
               <h1>Show Games page</h1>
               <img src={img} style={{width:'50%'}} />
@@ -18,6 +20,7 @@ class Show extends React.Component {
               {currentProgressNotes} </p>
               <a href="/Games"> Home </a>
           </div>
+          </Layout>
         );
     }
   }

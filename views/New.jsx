@@ -1,8 +1,10 @@
 const React = require('react');
+const Layout = require('./Layout.jsx');
 
 class New extends React.Component {
     render() {
       return (
+        <Layout title="Filtered PAGE">
           <div>
               <h1>New Games page</h1>
               <form action="/games" method="POST">
@@ -16,6 +18,7 @@ class New extends React.Component {
                   <input type="submit" name="" value="Create Game"/>
                 </form>
           </div>
+          </Layout >
         );
     }
   }
