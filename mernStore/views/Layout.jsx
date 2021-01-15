@@ -8,7 +8,7 @@ class Layout extends React.Component {
                     <title>Games Page</title>
                 </head>
                 <body>
-                    <h1>{this.props.title}</h1>
+                    <h1>NAVBAR HERE</h1>
                     {this.props.children}
                 </body>
             </html>

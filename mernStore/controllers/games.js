@@ -18,12 +18,31 @@ const isAuthenticated = (req, res, next) => {
 // Index
 gameController.get('/', isAuthenticated, (req, res) => {
     // Use Games model to get all Games
+
     Game.find({owner:req.session.currentUser}, (error, allGames) => {
-        console.log(req.session);
-        console.log(allGames)
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.beaten ===false)
+        console.log('filtered games from controller' , filteredGames)
         res.render('Index', {
             games: allGames,
             username: req.session.currentUser,
+            filteredGames:filteredGames
+        });
+    });
+});
+
+gameController.get('/filtered', isAuthenticated, (req, res) => {
+    // Use Games model to get all Games
+
+    Game.find({owner:req.session.currentUser}, (error, allGames) => {
+        // console.log(req.session);
+        // console.log(allGames)
+        let filteredGames = allGames.filter(game => game.beaten ===false)
+        console.log('filtered games from controller' , filteredGames)
+        res.render('Filtered', {
+            username: req.session.currentUser,
+            filteredGames:filteredGames
         });
     });
 });
@@ -77,7 +96,11 @@ gameController.get('/edit/:id', isAuthenticated, (req, res) => {
 
 //UPDATE
 gameController.put('/edit/:id', (req, res) => {
-
+  if (req.body.beaten === 'on') {
+      req.body.beaten = true;
+  } else {
+      req.body.beaten = false;
+  }
     Game.findByIdAndUpdate(req.params.id, req.body, (error, data) => {
         res.redirect('/Games');
     });
