@@ -9,6 +9,7 @@ class Switchgames extends React.Component {
 
 
         return (
+
             <Layout title="Filtered PAGE">
             {this.props.username ? '' : logout}
             <div style={{'text-align':'center'}}>

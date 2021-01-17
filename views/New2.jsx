@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
       return (
         <Layout title="new2 PAGE">
-          <div>
+          <div style={{'background-color': '#212529', 'text-align': 'center', 'color': 'ghostWhite' }}>
               <h4>Your {this.props.system} list is currently empty please add one</h4>
               <form action="/games" method="POST">
                   Name: <input type="text" name="name" /><br/>

@@ -10,7 +10,7 @@ class Playstationgames extends React.Component {
 
 
         return (
-          {this.props.filteredGames.length > 0 ?
+
             <Layout title="Filtered PAGE">
             {this.props.username ? '' : logout}
             <div style={{'text-align':'center'}}>
@@ -72,9 +72,7 @@ class Playstationgames extends React.Component {
 
             </div>
             </Layout>
-              :
-              <New />
-            }
+            
         );
     }
 }

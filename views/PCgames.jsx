@@ -1,4 +1,5 @@
 const React = require('react');
+const New = require('./New.jsx');
 
 const Layout = require('./Layout.jsx');
 
@@ -9,6 +10,7 @@ class PCgames extends React.Component {
 
 
         return (
+
             <Layout title="Filtered PAGE">
             {this.props.username ? '' : logout}
             <div style={{'text-align':'center'}}>
@@ -21,12 +23,13 @@ class PCgames extends React.Component {
               <a href={`/games`}> Back to all games </a>
                </button>
                  </div>
-              <ul>
 
-            {this.props.filteredGames.length > 0 ?
-                this.props.filteredGames.map(( game, i) => {
+
+
+                {this.props.filteredGames.map(( game, i) => {
                               console.log(game._id);
                               return (
+                                <ul>
                                 <div class="card text-center bg-dark" style={{'width':'30rem','margin':'15px auto'}} >
                                   <img class="card-img-top" style={{'height':'300px'}} src={game.img} alt="Card image cap" />
                                   <div class="card-body" style={{'color':'ghostWhite'}}>
@@ -60,13 +63,15 @@ class PCgames extends React.Component {
                                   </div>
                                   </div>
                                 </div>
+                                </ul>
                               );
-                          }):
-                           '' }
-              </ul>
+                          })
+                        }
+
 
             </div>
             </Layout>
+          
         );
     }
 }

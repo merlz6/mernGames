@@ -8,7 +8,7 @@ const isAuthenticated = (req, res, next) => {
     if (req.session.currentUser) {
         return next();
     } else {
-        res.redirect('/sessions/new');
+        res.redirect('/');
     }
 };
 
@@ -22,7 +22,7 @@ gameController.get('/', isAuthenticated, (req, res) => {
     Game.find({owner:req.session.currentUser}, (error, allGames) => {
         // console.log(req.session);
         // console.log(allGames)
-        let filteredGames = allGames.filter(game => game.beaten ===false)
+        let filteredGames = allGames.filter(game => game.beaten === false)
         console.log('filtered games from controller' , filteredGames)
         res.render('Index', {
             games: allGames,

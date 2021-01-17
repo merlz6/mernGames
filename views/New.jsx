@@ -5,7 +5,7 @@ class New extends React.Component {
     render() {
       return (
         <Layout title="Filtered PAGE">
-          <div>
+          <div style={{'text-align':'center', 'color':'ghostWhite'}}>
               <h1>New Games page</h1>
               <form action="/games" method="POST">
                   Name: <input type="text" name="name" /><br/>
